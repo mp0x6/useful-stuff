@@ -10,3 +10,11 @@ ps2pdf input.pdf output.pdf
 gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -sOutputFile=repaired.pdf kaputt.pdf
 # unites pdf files (but it does not work on DRM'ed files, may fail when encountering invalid PDF files)
 pdfunite datei1.pdf datei2.pdf datei3.pdf output.pdf
+
+
+# #######################
+# #### GENERAL STUFF ####
+# #######################
+
+# display a clock in the top right of the cli-window
+while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
