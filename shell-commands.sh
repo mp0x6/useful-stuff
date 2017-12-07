@@ -18,3 +18,5 @@ pdfunite datei1.pdf datei2.pdf datei3.pdf output.pdf
 
 # display a clock in the top right of the cli-window
 while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &
+# don't show strangers your camera equipment
+exiftool -Model="" -Lens="" -lensid="" -lensprofilename="" -lensmodel="" -lensprofilefilename="" -serialnumber="" -lensinfo="" -lensmodel="" -lensid="" -lenstype="" -LensID="" -LensMake="" -creator="" -artist="" -make=""-history="" -by-line="" -historyparameters="" -firmware="" *.JPG
