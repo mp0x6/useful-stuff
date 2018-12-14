@@ -42,3 +42,8 @@ def sanitize(unsafe_input):
 
 # Get containing folder of the current file regardless of current working dir
 os.path.abspath(os.path.dirname(__file__))
+
+# Check whether program is run on its own or imported by calling program
+# if run on its own: start some tests.
+if __name__ == '__main__':
+  run_tests()
