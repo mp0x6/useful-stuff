@@ -39,3 +39,6 @@ def sanitize(unsafe_input):
         Also truncates the output to 35 characters.
         """
         return re.sub('[^ a-zA-Z0-9\u00C0-\u017F]','',unsafe_input)[:35]
+
+# Get containing folder of the current file regardless of current working dir
+os.path.abspath(os.path.dirname(__file__))
