@@ -29,3 +29,13 @@ def test_install(cookies):
   finally:
     # always change directories to the test directory
     os.chdir(cwd)
+
+    
+    
+# Max Level sanitization for user provided input
+def sanitize(unsafe_input):
+        """
+        Removes (hopefully) everything besides non-escapable characters.
+        Also truncates the output to 35 characters.
+        """
+        return re.sub('[^ a-zA-Z0-9\u00C0-\u017F]','',unsafe_input)[:35]
