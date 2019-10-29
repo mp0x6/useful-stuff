@@ -47,3 +47,9 @@ os.path.abspath(os.path.dirname(__file__))
 # if run on its own: start some tests.
 if __name__ == '__main__':
   run_tests()
+
+# Execute command only if variable debugging is set to true:
+debugging and print("Here I am!")
+
+# delete all occurences of 'Foo' in list using list comprehension
+list = [value for value in list if value != 'Foo']
