@@ -24,3 +24,13 @@ exiftool -Model="" -Lens="" -lensid="" -lensprofilename="" -lensmodel="" -lenspr
 ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -strict experimental output.mp4
 # liberate fonts by setting the embeddable flag to the most liberal setting using ttembed (https://github.com/hisdeedsaredust/ttembed)
 ttembed Fonts/*
+# get only the file link from stdin
+grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*"
+# get everything but the match from stdin
+grep -v 'foo'
+# only get unique values
+| uniq
+# ocr image pdfs
+ocrmypdf in.pdf out.pdf
+# get all image links from a file, sort them not using string search, download them, make optimized pdf and delete everything that's not an pdf or mp4
+cat *.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | grep 'critera1' | grep -v 'criteria2' | uniq | wget -i - && convert $(ls *.jpg | sort -V) file.pdf && ocrmypdf file.pdf output.pdf && rm file.pdf "$(ls | grep -v 'mp4' | grep -v 'pdf')"
